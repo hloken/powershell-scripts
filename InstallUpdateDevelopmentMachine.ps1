@@ -72,12 +72,6 @@ if ($includeKotlin)
     choco upgrade openjdk14 -y
 }
 
-Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
-if ($includeNode)
-{
-    choco upgrade nodejs -y
-}
-
 Write-Host "Installing/upgrading Docker Desktop" -foregroundcolor $foreground -backgroundcolor $background
 if ($includeNode)
 {
