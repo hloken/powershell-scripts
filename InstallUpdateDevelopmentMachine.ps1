@@ -31,6 +31,8 @@ choco upgrade slack -y
 choco upgrade veracrypt -y
 choco upgrade treesizefree -y
 choco upgrade paint.net -y
+choco upgrade handbrake -y
+choco upgrade vlc -y
 choco upgrade gpmdp -y
 choco upgrade powertoys -y
 choco upgrade GoogleChrome -y
