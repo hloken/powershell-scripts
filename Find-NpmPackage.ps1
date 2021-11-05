@@ -13,8 +13,6 @@ param (
     [System.IO.FileInfo]$Path = (Get-Location).Path
 )
 
-
-
 Write-Output "Looking for package '${PackageName}' in path '$Path'"
 Get-ChildItem -Path $Path -Filter package-lock.json -Recurse -File | ForEach-Object { 
     Select-String -Path $_.FullName -pattern "`"${PackageName}`":" -Context 0,1 }
