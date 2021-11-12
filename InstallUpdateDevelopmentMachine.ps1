@@ -43,7 +43,15 @@ choco upgrade LinkShellExtension -y
 choco upgrade putty -y
 choco upgrade chocolateygui -y
 choco upgrade cports -y
+choco upgrade gsudo -y
 Write-Host
+
+Write-Host "Installing/upgrading system applications with winget" -foregroundcolor $foreground -backgroundcolor $background
+winget install Microsoft.PowerShell
+winget install JanDeDobbeleer.OhMyPosh # restart shell to reload PATH
+
+Write-Host "Installing Powershell Modules"
+Install-Module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
 
 Write-Host "Installing/upgrading development tools from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
 choco upgrade nuget.commandline -y
@@ -58,6 +66,7 @@ choco upgrade curl -y
 choco upgrade fiddler -y
 choco upgrade firacode-ttf -y
 choco upgrade roundhouse -y
+
 
 
 Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
