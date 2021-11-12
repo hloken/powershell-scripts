@@ -48,6 +48,7 @@ Write-Host
 Write-Host "Installing/upgrading system applications with winget" -foregroundcolor $foreground -backgroundcolor $background
 winget install Microsoft.PowerShell
 winget install JanDeDobbeleer.OhMyPosh # restart shell to reload PATH
+winget install Microsoft.WindowsTerminal
 
 Write-Host "Installing Powershell Modules"
 Install-Module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
