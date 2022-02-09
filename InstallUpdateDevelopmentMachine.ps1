@@ -34,7 +34,7 @@ choco upgrade paint.net -y
 choco upgrade handbrake -y
 choco upgrade vlc -y
 choco upgrade powertoys -y
-choco upgrade GoogleChrome -y
+choco upgrade FireFox -y
 choco upgrade adobereader -y
 choco upgrade adobereader-update -y
 choco upgrade desktopok -y
@@ -61,14 +61,12 @@ choco upgrade gitextensions -y
 choco upgrade gh -y
 choco upgrade poshgit -y
 choco upgrade beyondcompare -y
-choco upgrade sublimetext3 -y
+choco upgrade sublimetext4 -y
 choco upgrade postman -y
 choco upgrade curl -y
 choco upgrade fiddler -y
 choco upgrade firacode-ttf -y
 choco upgrade roundhouse -y
-
-
 
 Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
 if ($includeNode)
