@@ -24,7 +24,6 @@ if ($initialInstall) {
 Write-Host "Installing/upgrading system applications from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
 choco upgrade powershell-core -y
 choco upgrade dropbox -y
-choco upgrade ConEmu -y
 choco upgrade 1password -y
 choco upgrade 7zip -y
 choco upgrade slack -y
@@ -49,6 +48,7 @@ Write-Host "Installing/upgrading system applications with winget" -foregroundcol
 winget install Microsoft.PowerShell
 winget install JanDeDobbeleer.OhMyPosh # restart shell to reload PATH
 winget install Microsoft.WindowsTerminal
+winget install Ytmdesktop.Ytmdesktop
 
 Write-Host "Installing Powershell Modules"
 Install-Module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
