@@ -15,6 +15,7 @@ if ($initialInstall) {
     Write-Host "Installing Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     refreshenv
+
     Write-Host
 } else {
     Write-Host "Upgrading Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
@@ -52,6 +53,7 @@ winget install Ytmdesktop.Ytmdesktop
 
 Write-Host "Installing Powershell Modules"
 Install-Module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
+Install-Module z -AllowClobber # need by powershell $PROFILE
 
 Write-Host "Installing/upgrading development tools from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
 choco upgrade nuget.commandline -y
