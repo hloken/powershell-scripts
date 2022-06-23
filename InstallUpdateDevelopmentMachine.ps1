@@ -73,7 +73,8 @@ choco upgrade roundhouse -y
 Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
 if ($includeNode)
 {
-    choco upgrade nodejs -y
+    #choco upgrade nodejs  -y
+    choco upgrade nodejs.lts
 }
 
 Write-Host "Installing/upgrading Kotlin/Gradle/OpenJDK" -foregroundcolor $foreground -backgroundcolor $background
