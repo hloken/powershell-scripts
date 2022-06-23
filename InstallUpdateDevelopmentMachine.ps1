@@ -74,7 +74,7 @@ Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgrou
 if ($includeNode)
 {
     #choco upgrade nodejs  -y
-    choco upgrade nodejs-lts
+    choco upgrade nodejs-lts -y
 }
 
 Write-Host "Installing/upgrading Kotlin/Gradle/OpenJDK" -foregroundcolor $foreground -backgroundcolor $background
