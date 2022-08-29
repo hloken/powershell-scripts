@@ -25,7 +25,6 @@ if ($initialInstall) {
 Write-Host "Installing/upgrading system applications from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
 choco upgrade powershell-core -y
 choco upgrade dropbox -y
-choco upgrade 1password -y
 choco upgrade 7zip -y
 choco upgrade slack -y
 choco upgrade veracrypt -y
