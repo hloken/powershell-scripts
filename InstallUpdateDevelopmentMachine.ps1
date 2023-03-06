@@ -51,8 +51,8 @@ winget install Microsoft.WindowsTerminal
 winget install Ytmdesktop.Ytmdesktop
 
 Write-Host "Installing Powershell Modules"
-Install-Module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
-Install-Module z -AllowClobber # need by powershell $PROFILE
+powershellget\install-module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
+powershellget\install-module z -AllowClobber # need by powershell $PROFILE
 
 Write-Host "Installing/upgrading development tools from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
 choco upgrade nuget.commandline -y
