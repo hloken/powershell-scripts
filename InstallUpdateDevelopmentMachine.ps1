@@ -67,6 +67,7 @@ choco upgrade postman -y
 choco upgrade curl -y
 choco upgrade fiddler -y
 choco upgrade firacode-ttf -y
+choco upgrade cascadia-code-nerd-font-ttf -y
 choco upgrade roundhouse -y
 
 Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
