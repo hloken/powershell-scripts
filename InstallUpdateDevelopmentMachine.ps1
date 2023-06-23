@@ -86,7 +86,7 @@ if ($includeKotlin)
 }
 
 Write-Host "Installing/upgrading Docker Desktop" -foregroundcolor $foreground -backgroundcolor $background
-if ($includeNode)
+if ($includeDocker)
 {
     choco upgrade docker-desktop -y
 }
