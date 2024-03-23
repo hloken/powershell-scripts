@@ -42,6 +42,7 @@ choco upgrade putty -y
 choco upgrade chocolateygui -y
 choco upgrade cports -y
 choco upgrade gsudo -y
+choco upgrade inkscape -y
 Write-Host
 
 Write-Host "Installing/upgrading system applications with winget" -foregroundcolor $foreground -backgroundcolor $background
