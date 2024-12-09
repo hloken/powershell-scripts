@@ -52,7 +52,7 @@ winget install Microsoft.WindowsTerminal
 winget install Ytmdesktop.Ytmdesktop
 
 Write-Host "Installing Powershell Modules"
-powershellget\install-module -Name Terminal-Icons -Repository PSGallery # need by powershell $PROFILE
+powershellget\install-module -Name Terminal-Icons -AllowClobber -Repository PSGallery # need by powershell $PROFILE
 powershellget\install-module z -AllowClobber # need by powershell $PROFILE
 
 Write-Host "Installing/upgrading development tools from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
@@ -62,7 +62,7 @@ choco upgrade git -y
 choco upgrade gitextensions -y
 choco upgrade gh -y
 choco upgrade poshgit -y
-choco upgrade beyondcompare -y
+#choco upgrade beyondcompare -y
 choco upgrade sublimetext4 -y
 choco upgrade postman -y
 choco upgrade curl -y
