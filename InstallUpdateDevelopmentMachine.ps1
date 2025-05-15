@@ -59,6 +59,7 @@ Write-Host "Installing/upgrading development tools from Chocolatey" -foregroundc
 choco upgrade nuget.commandline -y
 choco upgrade sysinternals -y
 choco upgrade git -y
+choco upgrade git-sizer -y
 choco install gitextensions --ignore-dependencies -y
 choco upgrade gh -y
 choco upgrade poshgit -y
