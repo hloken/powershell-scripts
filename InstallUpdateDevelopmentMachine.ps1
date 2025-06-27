@@ -72,6 +72,9 @@ choco upgrade firacode-ttf -y
 choco upgrade cascadia-code-nerd-font -y
 choco upgrade roundhouse -y
 
+Write-Host "Installing/upgrading development tools from WinGet" -foregroundcolor $foreground -backgroundcolor $background
+winget install Microsoft.WinDbg
+
 Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
 if ($includeNode)
 {
