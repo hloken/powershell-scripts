@@ -62,7 +62,8 @@ choco upgrade sysinternals -y
 choco upgrade git -y
 choco upgrade git-sizer -y
 choco install gitextensions --ignore-dependencies -y
-choco upgrade gh -y
+#choco upgrade gh -y
+winget upgrade GitHub.cli
 choco upgrade poshgit -y
 #choco upgrade beyondcompare -y
 choco upgrade sublimetext4 -y
