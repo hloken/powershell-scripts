@@ -8,8 +8,24 @@ $prevforeground = (get-host).ui.rawui.ForegroundColor
 $foreground="red"
 $background="yellow"
 
+
+function Install-OrUpdate-Winget {
+    param (
+        [string]$PackageId
+    )
+
+    $installed = winget list --id $PackageId --exact 2>&1
+    if ($installed -match $PackageId) {
+        Write-Host "Updating $PackageId..."
+        winget upgrade --id $PackageId --exact --silent --accept-package-agreements --accept-source-agreements
+    } else {
+        Write-Host "Installing $PackageId..."
+        winget install --id $PackageId --exact --silent --accept-package-agreements --accept-source-agreements
+    }
+}
+
 ######################################################
-# Install apps using Chocolatey
+# Install apps using Chocolatey and Winget
 ######################################################
 if ($initialInstall) {
     Write-Host "Installing Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
@@ -22,8 +38,11 @@ if ($initialInstall) {
     choco upgrade chocolatey -y
     Write-Host
 }
-Write-Host "Installing/upgrading system applications from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
-choco upgrade powershell-core -y
+Write-Host "Installing/upgrading system applications with Chocolatey and winget" -foregroundcolor $foreground -backgroundcolor $background
+Install-OrUpdate-Winget Microsoft.PowerShell
+Install-OrUpdate-Winget JanDeDobbeleer.OhMyPosh # restart shell to reload PATH
+Install-OrUpdate-Winget Microsoft.WindowsTerminal
+Install-OrUpdate-Winget Ytmdesktop.Ytmdesktop
 choco upgrade dropbox -y
 choco upgrade 7zip -y
 choco upgrade slack -y
@@ -46,23 +65,17 @@ choco upgrade inkscape -y
 choco upgrade openssl -y
 Write-Host
 
-Write-Host "Installing/upgrading system applications with winget" -foregroundcolor $foreground -backgroundcolor $background
-winget install Microsoft.PowerShell
-winget install JanDeDobbeleer.OhMyPosh # restart shell to reload PATH
-winget install Microsoft.WindowsTerminal
-winget install Ytmdesktop.Ytmdesktop
-
-Write-Host "Installing Powershell Modules"
+Write-Host "Installing Powershell Modules" -foregroundcolor $foreground -backgroundcolor $background
 powershellget\install-module -Name Terminal-Icons -AllowClobber -Repository PSGallery # need by powershell $PROFILE
 powershellget\install-module z -AllowClobber # need by powershell $PROFILE
+Write-Host
 
-Write-Host "Installing/upgrading development tools from Chocolatey" -foregroundcolor $foreground -backgroundcolor $background
+Write-Host "Installing/upgrading development tools with Chocolatey and winget" -foregroundcolor $foreground -backgroundcolor $background
 choco upgrade nuget.commandline -y
 choco upgrade sysinternals -y
 choco upgrade git -y
 choco upgrade git-sizer -y
 choco install gitextensions --ignore-dependencies -y
-#choco upgrade gh -y
 winget upgrade GitHub.cli
 choco upgrade poshgit -y
 #choco upgrade beyondcompare -y
@@ -76,15 +89,13 @@ choco upgrade roundhouse -y
 choco upgrade kubernetes-cli -y
 choco upgrade k9s -y
 choco upgrade azure-cli -y
-winget install GitHub.Copilot
-
-Write-Host "Installing/upgrading development tools from WinGet" -foregroundcolor $foreground -backgroundcolor $background
-winget install Microsoft.WinDbg
+Install-OrUpdate-Winget GitHub.Copilot
+Install-OrUpdate-Winget Anthropic.ClaudeCode
+Install-OrUpdate-Winget Microsoft.WinDbg
 
 Write-Host "Installing/upgrading node.js" -foregroundcolor $foreground -backgroundcolor $background
 if ($includeNode)
 {
-    #choco upgrade nodejs  -y
     choco upgrade nodejs-lts -y
 }
 
@@ -112,3 +123,4 @@ Write-Host "All done!" -foregroundcolor $foreground -backgroundcolor $background
 # resetting foreground color
 Write-Host -foregroundcolor $prevforeground
 #Set-PSReadlineOption -TokenKind Parameter -ForegroundColor $prevforeground
+
