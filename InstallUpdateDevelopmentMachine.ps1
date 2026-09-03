@@ -51,6 +51,7 @@ choco upgrade treesizefree -y
 choco upgrade paint.net -y
 choco upgrade handbrake -y
 choco upgrade vlc -y
+choco upgrade MKVtoolnix -y
 choco upgrade powertoys -y
 choco upgrade vivaldi -y
 choco upgrade adobereader -y
